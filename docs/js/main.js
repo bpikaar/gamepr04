@@ -1,29 +1,29 @@
 "use strict";
 var Bomb = (function () {
     function Bomb() {
+        var _this = this;
         this.htmlElement = document.createElement("bomb");
         document.body.appendChild(this.htmlElement);
-        this.htmlElement.addEventListener("click", this.clickHandler);
-        this.x = 5;
+        this.htmlElement.addEventListener("click", function (e) { return _this.clickHandler(); });
+        this.x = 2;
         this.y = 5;
-        this.speedX = Math.random() * 2 + 2;
+        this.speedX = Math.random() * 2 + 1;
         this.speedY = Math.random() * 2 + 2;
     }
     Bomb.prototype.move = function () {
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.x + this.htmlElement.clientWidth > window.innerWidth || this.x < 0) {
-            this.speedX *= -1;
-        }
         if (this.y + this.htmlElement.clientHeight > window.innerHeight || this.y < 0) {
-            this.speedY *= -1;
+            var bomb = this.htmlElement;
+            bomb.classList.add("explode");
+            console.log(bomb);
+            this.speedY = 0;
+            this.speedX = 0;
         }
         this.draw();
     };
     Bomb.prototype.clickHandler = function () {
-        var bomb = this.htmlElement;
-        bomb.classList.add("gone");
-        console.log(bomb);
+        this.htmlElement.remove();
     };
     Bomb.prototype.draw = function () {
         this.htmlElement.style.transform =

@@ -11,10 +11,15 @@ Game for 4th semester.
 ### Done
 * Bombs falling down.
 * Scene
-
-### Todo
 * That they dont bounce
 * Transform in to a explode.png when they touch the ground
+
+
+### Todo
 * Next level when all bombs are clicked.
 * Reset level when explode.png is shown.
 * Optimize code
+
+### Known issues
+* clickHandler isnt working yet
+* Scrolls to much down.

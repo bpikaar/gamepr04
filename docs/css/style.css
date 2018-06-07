@@ -14,6 +14,12 @@ img {
     padding: 0;
 }
 
+.explode {
+    background-image: url("../img/explosion.png");
+    width: 130px;
+    height: 130px;
+}
+
 bomb {
     width: 30px;
     height:30px;
@@ -22,10 +28,3 @@ bomb {
     display: block;
 }
 
-.gone {
-    width: 30px;
-    height:30px;
-
-    background-size: cover;
-    display: block;
-}
