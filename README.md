@@ -17,4 +17,4 @@ Game for 4th semester.
 *Transform in to a explode.png when they touch the ground
 *Next level when all bombs are clicked.
 *Reset level when explode.png is shown.
-
+*Optimize code
