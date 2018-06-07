@@ -21,5 +21,5 @@ Game for 4th semester.
 * Optimize code
 
 ### Known issues
-* clickHandler isnt working yet
 * Scrolls to much down.
+* doesnt reset on all clicks.

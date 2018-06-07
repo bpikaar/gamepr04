@@ -13,7 +13,7 @@ class Bomb {
        this.htmlElement = document.createElement("bomb")
         document.body.appendChild(this.htmlElement)
         // make HTML element for the bomb.
-        this.htmlElement.addEventListener("click",(e:Event) => this.clickHandler())
+        this.htmlElement.addEventListener("click",()     => this.clickHandler())
         // add quick event.
 
 
