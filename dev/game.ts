@@ -6,7 +6,7 @@ class Game {
         console.log("New game")
         
         this.bombes = new Array()
-        for (let index = 0; index < 3; index++) {
+        for (let index = 0; index < 10; index++) {
                 this.bombes.push(new Bomb())
             // makes sure that only 3 boms fall down.
         }

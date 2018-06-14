@@ -4,7 +4,7 @@ var Bomb = (function () {
         var _this = this;
         this.htmlElement = document.createElement("bomb");
         document.body.appendChild(this.htmlElement);
-        this.htmlElement.addEventListener("click", function () { return _this.clickHandler(); });
+        this.htmlElement.addEventListener("mouseover", function () { return _this.clickHandler(); });
         this.x = 2;
         this.y = 5;
         this.speedX = Math.random() * 2 + 1;
@@ -35,7 +35,7 @@ var Game = (function () {
     function Game() {
         console.log("New game");
         this.bombes = new Array();
-        for (var index = 0; index < 3; index++) {
+        for (var index = 0; index < 10; index++) {
             this.bombes.push(new Bomb());
         }
         this.gameLoop();

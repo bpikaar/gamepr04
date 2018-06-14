@@ -13,7 +13,7 @@ class Bomb {
        this.htmlElement = document.createElement("bomb")
         document.body.appendChild(this.htmlElement)
         // make HTML element for the bomb.
-        this.htmlElement.addEventListener("click",()     => this.clickHandler())
+        this.htmlElement.addEventListener("mouseover",()     => this.clickHandler())
         // add quick event.
 
 
@@ -39,6 +39,8 @@ class Bomb {
             console.log(bomb)
             this.speedY = 0
             this.speedX = 0
+        
+            
         }
 
 
