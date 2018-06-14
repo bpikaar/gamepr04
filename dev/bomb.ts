@@ -6,16 +6,19 @@ class Bomb {
 
     speedX : number
     speedY : number
-// set variables.
-    constructor(){
 
+    private game : Game
+// set variables.
+    constructor(game:Game){
+        this.game = game
 
        this.htmlElement = document.createElement("bomb")
         document.body.appendChild(this.htmlElement)
         // make HTML element for the bomb.
-        this.htmlElement.addEventListener("mouseover",()     => this.clickHandler())
+        this.htmlElement.addEventListener("mouseover",()     => this.mouseoverHandler())
         // add quick event.
 
+     
 
         this.x = 2
         this.y = 5
@@ -31,7 +34,7 @@ class Bomb {
         this.x += this.speedX
         this.y += this.speedY
 
-
+      
 
         if(this.y + this.htmlElement.clientHeight > window.innerHeight || this.y < 0) {
             let bomb = this.htmlElement;
@@ -40,16 +43,16 @@ class Bomb {
             this.speedY = 0
             this.speedX = 0
         
-            
         }
-
-
+        
+    
 
         this.draw()
     }
 
-    clickHandler(){
+    mouseoverHandler(){
         this.htmlElement.remove()
+        this.game.removeBomb(this)
     }
 
 

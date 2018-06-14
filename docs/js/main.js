@@ -1,10 +1,11 @@
 "use strict";
 var Bomb = (function () {
-    function Bomb() {
+    function Bomb(game) {
         var _this = this;
+        this.game = game;
         this.htmlElement = document.createElement("bomb");
         document.body.appendChild(this.htmlElement);
-        this.htmlElement.addEventListener("mouseover", function () { return _this.clickHandler(); });
+        this.htmlElement.addEventListener("mouseover", function () { return _this.mouseoverHandler(); });
         this.x = 2;
         this.y = 5;
         this.speedX = Math.random() * 2 + 1;
@@ -22,8 +23,9 @@ var Bomb = (function () {
         }
         this.draw();
     };
-    Bomb.prototype.clickHandler = function () {
+    Bomb.prototype.mouseoverHandler = function () {
         this.htmlElement.remove();
+        this.game.removeBomb(this);
     };
     Bomb.prototype.draw = function () {
         this.htmlElement.style.transform =
@@ -36,7 +38,7 @@ var Game = (function () {
         console.log("New game");
         this.bombes = new Array();
         for (var index = 0; index < 10; index++) {
-            this.bombes.push(new Bomb());
+            this.bombes.push(new Bomb(this));
         }
         this.gameLoop();
     }
@@ -47,6 +49,10 @@ var Game = (function () {
             bomb.move();
         }
         requestAnimationFrame(function () { return _this.gameLoop(); });
+    };
+    Game.prototype.removeBomb = function (bomb) {
+        var index = this.bombes.indexOf(bomb);
+        this.bombes.splice(index, 1);
     };
     return Game;
 }());
